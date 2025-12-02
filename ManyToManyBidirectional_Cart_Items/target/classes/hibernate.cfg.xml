@@ -20,8 +20,8 @@
 
 <!--  mapping class" /  -->
 <!--   <mapping class="com.demo.beans.Department"/> -->
-   <mapping class="com.demo.beans.Course"/> 
-    <mapping class="com.demo.beans.Student"/>  
+   <mapping class="com.demo.beans.Cart"/> 
+    <mapping class="com.demo.beans.Items"/>  
 <!--  <mapping resource="product.hmb.xml"/>
 		<mapping resource="user.hbm.xml"/> -->
 </session-factory>

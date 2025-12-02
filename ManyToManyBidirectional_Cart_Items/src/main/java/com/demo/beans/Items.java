@@ -2,11 +2,27 @@ package com.demo.beans;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="items")
 public class Items 
 {
+	@Id
 	private int itemid;
 	private String iname;
 	private double price;
+	
+	@ManyToMany
+	@JoinTable( name="carts_items", 
+				joinColumns = @JoinColumn(name="item_id"),
+				inverseJoinColumns = @JoinColumn(name="cart_id")
+				)
 	private List<Cart> carts;
 	
 	public Items() {
@@ -62,7 +78,7 @@ public class Items
 
 	@Override
 	public String toString() {
-		return "Items [itemid=" + itemid + ", iname=" + iname + ", price=" + price + ", carts=" + carts + "]";
+		return "Items [itemid=" + itemid + ", iname=" + iname + ", price=" + price + "]";
 	}
 	
 	

@@ -20,8 +20,7 @@ public class Cart
 	private int cartid;
 	private String cname;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="itemid")
+	@ManyToMany(mappedBy = "carts", cascade = CascadeType.ALL)
 	private List<Items> items;
 	
 	public Cart() {
@@ -39,6 +38,14 @@ public class Cart
 		super();
 		this.cartid = cartid;
 		this.cname = cname;
+	}
+	
+	
+
+	public Cart(String cname, List<Items> items) {
+		super();
+		this.cname = cname;
+		this.items = items;
 	}
 
 	public int getCartid() {
